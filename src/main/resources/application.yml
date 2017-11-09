@@ -1,0 +1,34 @@
+server:
+    port:
+        8080
+#    ssl:
+#        key-store: src/main/resources/keystore.p12
+#        key-store-password: 123456
+#        keyStoreType: PKCS12
+#        keyAlias: tomcat        
+    tomcat:
+        remote_ip_header:
+            x-forwarded-for
+        protocol_header:
+            x-forwarded-proto
+        internal-proxies:
+            192\.168\.\d{1,3}\.\d{1,3}
+    use-forward-headers:
+        true
+    error:
+        whitelabel:
+            enabled:
+                false
+connector:
+    ajpredirectport:
+        8443
+    ajpport:
+        8009
+    allowtrace:
+        true
+    enablelookups:
+        true
+    scheme:
+        https
+    secure:
+        false
